@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Rab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UnitTests</a> &gt; <a href="index.source.html" class="el_package">com.itvdn</a> &gt; <span class="el_source">Rab.java</span></div><h1>Rab.java</h1><pre class="source lang-java linenums">package com.itvdn;
+
+import java.util.Scanner;
+
+<span class="fc" id="L5">public class Rab {</span>
+    public int x, y;
+   public double xR, yR, S,A,B;
+   public String s;
+    //конструктор
+    public void Init(int setx,int sety,double setxR,double setyR) // конструктор с параметрами
+    {
+<span class="fc" id="L12">       x = setx;</span>
+<span class="fc" id="L13">       y = sety;</span>
+<span class="fc" id="L14">       xR = setxR;</span>
+<span class="fc" id="L15">       yR = setyR;</span>
+<span class="fc" id="L16">    }</span>
+    //конструктор без параметров
+    public void Init1() // конструктор без параметров
+    {
+<span class="fc" id="L20">        x = 0;</span>
+<span class="fc" id="L21">        y = 0;</span>
+<span class="fc" id="L22">        xR = 0;</span>
+<span class="fc" id="L23">        yR = 0;</span>
+<span class="fc" id="L24">    }</span>
+    public void VVOD() {
+<span class="nc" id="L26">        Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L27">        System.out.println(&quot;Введите координаты центра эллипса: &quot;);</span>
+<span class="nc" id="L28">        x = sc.nextInt();</span>
+<span class="nc" id="L29">        y = sc.nextInt();</span>
+<span class="nc" id="L30">        System.out.println(&quot;Введите длины полуосей(xR,yR) эллипса: &quot;);</span>
+<span class="nc" id="L31">        xR = sc.nextDouble();</span>
+<span class="nc" id="L32">        yR = sc.nextDouble();</span>
+<span class="nc" id="L33">    }</span>
+    public int Proverka()
+    {
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">        if(xR&gt;=0 &amp;&amp; yR &gt;=0)</span>
+        {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (xR == yR)</span>
+            {
+<span class="fc" id="L40">                System.out.println(&quot;Данный эллипс является окружностью&quot;);</span>
+<span class="fc" id="L41">                return 0;</span>
+            }
+            else
+            {
+<span class="fc" id="L45">                System.out.println(&quot;Данный эллипс НЕ является окружностью&quot;);</span>
+<span class="fc" id="L46">                return 1;</span>
+            }
+        }
+        else
+        {
+<span class="fc" id="L51">            System.out.println(&quot;Вы ввели отрицательное значение длины. Площадь эллипса будет расчитана с учетом МОДУЛЯ этой длины&quot;);</span>
+<span class="fc" id="L52">            return 2;</span>
+        }
+    }
+    public int Which_Bigger()
+    {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (A&gt;B)</span>
+        {
+<span class="fc" id="L59">            System.out.println(&quot;Первый эллипс больше!&quot;);</span>
+<span class="fc" id="L60">            return 1;</span>
+        }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        else if (A == B)</span>
+        {
+<span class="fc" id="L64">            System.out.println(&quot;Эти эллипсы равны!&quot;);</span>
+<span class="fc" id="L65">            return 2;</span>
+        }
+        else
+        {
+<span class="fc" id="L69">            System.out.println(&quot;Второй эллипс больше!&quot;);</span>
+<span class="fc" id="L70">            return 3;</span>
+        }
+    }
+    public double Proverka2()
+    {
+<span class="fc" id="L75">        S = yR + xR + x - y;</span>
+<span class="fc" id="L76">        return S;</span>
+    }
+    public void VIVOD()
+    {
+<span class="fc" id="L80">        s = &quot;Площадь эллипса = &quot; + S;</span>
+<span class="fc" id="L81">        System.out.println(s);</span>
+<span class="fc" id="L82">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
